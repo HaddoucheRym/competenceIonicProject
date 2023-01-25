@@ -1,0 +1,24 @@
+{
+  "utilisateur": [
+    {
+      "id": 1,
+      "nom": "john do"
+    },
+    {
+      "id": 2,
+      "nom": "Sarah li"
+    }
+  ],
+  "competence": [
+    {
+      "id": 1,
+      "nom": "Java ",
+      "description": "Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems"
+    },
+    {
+      "id": 2,
+      "nom": "React ",
+      "description": "React est une bibliothèque JavaScript libre développée par Facebook depuis 2013."
+    }
+  ]
+}
