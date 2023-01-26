@@ -1,6 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonItem, IonList } from '@ionic/react'
 import { type } from 'os'
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { CompetenceType } from '../service/competence.type'
 
 export type CompetenceProps = {
@@ -27,6 +28,10 @@ const Competence = (props: CompetenceProps) => {
                 <IonCardContent>
                     {props.comp.description}
                 </IonCardContent>
+                <NavLink to={'/detailCompetence/'+ props.comp.id}>
+
+                <IonButton color="secondary">Detail</IonButton>
+                </NavLink>
                 <IonButton color="danger" onClick={() => supprimerComp()}>X</IonButton>
                 <IonButton color="success" onClick={()=> props.handleClickEdit(props.comp.id)}>Modifier</IonButton>
             </IonCard>

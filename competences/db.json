@@ -1,15 +1,63 @@
 {
-  "utilisateur": [
+  "utilisateurs": [
     {
       "id": 1,
-      "nom": "john do"
+      "nom": "john do",
+      "date": "12/05/1980",
+      "email": "Shanna@melissa.tv",
+      "telephone": "010-692-6593 x09125",
+      "competences": [
+        {
+          "nom": "React",
+          "niveau": "Debutant"
+        }
+      ]
     },
     {
       "id": 2,
-      "nom": "Sarah li"
+      "nom": "Sarah li",
+      "date": "12/05/1989",
+      "email": "Nathan@yesenia.net",
+      "telephone": "1-463-123-4447",
+      "competences": [
+        {
+          "nom": "React",
+          "niveau": "Debutant"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "sisi",
+      "date": "12/02/1325",
+      "email": "sdfsdfsdf",
+      "telephone": "sdfsdfsdfds",
+      "competences": [
+        {
+          "nom": "React",
+          "niveau": "Debutant"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nom": "lili",
+      "date": "12/12/1999",
+      "email": "hty@gmail.com",
+      "telephone": "125896",
+      "competences": [
+        {
+          "nom": "Java 1",
+          "niveau": "Debutant"
+        },
+        {
+          "nom": "React ",
+          "niveau": "Confirmé"
+        }
+      ]
     }
   ],
-  "competence": [
+  "competences": [
     {
       "id": 1,
       "nom": "Java ",

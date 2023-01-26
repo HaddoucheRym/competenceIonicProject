@@ -1,7 +1,8 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonBadge, IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
+import { logoIonic } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,26 +24,45 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import CompetencePage from './pages/CompetencePage';
 import AddCompetence from './components/AddCompetence';
+import DetailCompetence from './components/DetailCompetence';
+import UtilisateurPage from './pages/UtilisateurPage';
+import AddUtilisateur from './components/AddUtilisateur';
+import DetailUtilisateur from './components/DetailUtilisateur';
+import { calendar, personCircle, map, informationCircle, flash } from 'ionicons/icons'
+
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <CompetencePage />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route path="/ajoutCompetence" component={AddCompetence} exact={true}/>
-          {/* <AddCompetence  /> */}
-        {/* </Route> */}
-        {/* <Route axact path="/ajoutCompetence"  >
-        <Redirect to="/ajoutCompetence" />
-        </Route> */}
-      </IonRouterOutlet>
+      <IonPage id="main">
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <CompetencePage />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/ajoutCompetence" component={AddCompetence} exact={true} />
+            <Route path="/detailCompetence/:id" component={DetailCompetence} />
+            <Route path="/utilisateurs" component={UtilisateurPage} />
+            <Route path="/ajoutUtilisateur" component={AddUtilisateur} />
+            <Route path="/detailUtilisateur/:id" component={DetailUtilisateur} />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="/" href="/">
+              <IonIcon icon={flash} />
+              <IonLabel>Competeneces</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="utilisateurs" href="/utilisateurs">
+              <IonIcon icon={personCircle} />
+              <IonLabel>Personnes</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonPage>
     </IonReactRouter>
   </IonApp>
 );

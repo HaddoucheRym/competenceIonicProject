@@ -12,7 +12,7 @@ export type CompetenceListProps = {
 }
 
 const CompetenceList = (props: CompetenceListProps) => {
-    const [selecId, setSelectId] = useState<Number>(2)
+    const [selecId, setSelectId] = useState<Number>()
 
     const modifierComp = (competence: CompetenceType) => {
         props.modifComp(competence)
@@ -25,7 +25,7 @@ const CompetenceList = (props: CompetenceListProps) => {
                 index: number) => {
                 if (comp.id === selecId) {
                     return <EditeCompetence comp={comp} key={index}
-                    modifComp={modifierComp} />
+                        modifComp={modifierComp} />
                 } else {
                     return <Competence key={index} comp={comp} supprimerComp={props.supprimeComp} handleClickEdit={setSelectId} />
                 }

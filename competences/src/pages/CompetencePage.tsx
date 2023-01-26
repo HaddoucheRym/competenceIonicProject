@@ -41,7 +41,7 @@ const CompetencePage = () => {
             <IonPage>
                 <IonHeader>
                     <IonToolbar>
-                        <IonTitle>Competences</IonTitle>
+                        <IonTitle>Liste des competences</IonTitle>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent fullscreen>
