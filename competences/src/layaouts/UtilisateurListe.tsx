@@ -12,6 +12,10 @@ export type UtilisateurListeProps = {
 const UtilisateurListe = (props: UtilisateurListeProps) => {
     const [selecId, setSelectId] = useState<Number>()
 
+    /**
+     * Fonctionn qui utilise les props pourr modifier une personne
+     * @param utilisateur UtilisateurType, personne à modifier
+     */
     const modisierUtilisateur =(utilisateur: UtilisateurType) => {
         props.ModifUtilisateur(utilisateur)
         setSelectId(0)

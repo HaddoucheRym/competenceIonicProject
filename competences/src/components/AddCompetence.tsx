@@ -5,12 +5,6 @@ import { NavLink } from 'react-router-dom'
 import { CompetenceType } from '../service/competence.type'
 import { service } from '../service/competence.service'
 
-// export type AddCompetenceProps = {
-//     ajoutComp: Function,
-//     comps: CompetenceType[],
-//     setComps: Function
-// }
-
 const AddCompetence = () => {
     const [comps, setComps] = useState<CompetenceType[]>([])
     const [newCompetence, setNewCompetence] = useState<CompetenceType>({
@@ -20,32 +14,58 @@ const AddCompetence = () => {
         image: ""
     })
 
+    /**
+    * Mise à jour et recuperation de la liste des competences
+    */
     useEffect(() => {
         findAllCompetence()
     }, [])
 
+     /**
+    * fonction qui appelle le service competence pour afficher toutes les competences
+    */
     const findAllCompetence = (): void => {
         service.findAllCompetences().then(data => setComps(data))
     }
 
+    /**
+     * Fonction qui fait appel au service competence pour ajouter une competence
+     * @param newComp CompetenceType, competence à ajouter
+     */
     const ajoutCompetence = (newComp: CompetenceType): void => {
         service.postCompetence(newComp).then(() => {
             findAllCompetence()
         })
     }
 
+    /**
+     * Fonction qui ajoute un nom de competence
+     * @param event string, nom du competence à ajouter
+     */
     const handleChangeNom = (event: any) => {
         setNewCompetence({ ...newCompetence, nom: event.target.value, })
     }
 
+    /**
+     * Fonction qui ajoute une description à la competence
+     * @param event string, description de la competence à ajouter
+     */
     const handleChangeDescription = (event: any) => {
         setNewCompetence({ ...newCompetence, description: event.target.value, })
     }
 
+    /**
+     * Fonction qui ajoute une image de competence
+     * @param event string, image du competence à ajouter
+     */
     const handleChangeImage = (event: any) => {
         setNewCompetence({ ...newCompetence, image: event.target.value, })
     }
 
+    /**
+     * fonction pour enregistrer la nouvelle competence dans la base de données 
+     * en cliquant sur le bouton ajouter
+     */
     const handleClickSave = (): void => {
         ajoutCompetence(newCompetence)
     }

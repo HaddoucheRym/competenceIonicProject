@@ -14,6 +14,10 @@ export type CompetenceListProps = {
 const CompetenceList = (props: CompetenceListProps) => {
     const [selecId, setSelectId] = useState<Number>()
 
+    /**
+     * Fonction qui utilise les props pour modifier une competence
+     * @param competence CompetenceType, competence à modifier
+     */
     const modifierComp = (competence: CompetenceType) => {
         props.modifComp(competence)
         setSelectId(0)

@@ -11,10 +11,16 @@ const DetailUtilisateur = () => {
   const { id } = useParams<any>();
   const [selectedPerId, setSelectedPerId] = useState(id);
 
+  /**
+   * Mise à jour et recuperation d'une personne
+   */
   useEffect(() => {
     trouvPersonne()
   }, [selectedPerId])
 
+  /**
+   * Fonction qui fait appel au service personne pour affiche une personne
+   */
   const trouvPersonne = (): void => {
     personneservice.findUtilisateur(selectedPerId).then(data =>
       setPersonne(data))

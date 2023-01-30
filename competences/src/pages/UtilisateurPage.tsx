@@ -8,20 +8,35 @@ import { UtilisateurType } from '../service/utilisateur.type'
 const UtilisateurPage = () => {
     const [utilisateurs, setUtilisateurs] = useState<UtilisateurType[]>([])
 
+    /**
+     * Mise à jour et recuperation des personnes
+     */
     useEffect(() => {
         trouverTousUtilisateurs()
     }, [])
 
+    /**
+     * fonction qui appelle le service personne pour afficher toutes les personnes
+     */
     const trouverTousUtilisateurs = (): void => {
         personneservice.findAllUtilisateurs().then(data => setUtilisateurs(data))
     }
 
+    /**
+     * focntion qui appelle le service personne pour supprimer une personne
+     * @param id number, de la personne à supprimer
+     */
     const supprimerUtilisateur = (id: number) => {
         personneservice.deleteUtilisateur(id).then(() => {
             trouverTousUtilisateurs()
         })
     }
 
+    /**
+     * fonction qui appelle le service de personne pour modifier les information
+     * du personne
+     * @param utilisateur UtilisateurType, a modifier
+     */
     const ModifUtilisateur = (utilisateur: UtilisateurType) => {
         personneservice.putUtilisateur(utilisateur).then(() => {
             trouverTousUtilisateurs()

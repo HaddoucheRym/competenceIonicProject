@@ -9,26 +9,34 @@ import { service } from '../service/competence.service'
 const CompetencePage = () => {
     const [comps, setComps] = useState<CompetenceType[]>([])
 
+    /**
+     * Mise à jour et recuperation de la liste des competences
+     */
     useEffect(() => {
         findAllCompetence()
     }, [])
 
+    /**
+     * fonction qui appelle le service competence pour afficher toutes les competences
+     */
     const findAllCompetence = (): void => {
         service.findAllCompetences().then(data => setComps(data))
     }
 
-    // const ajoutCompetence = (newComp: CompetenceType): void => {
-    //     service.postCompetence(newComp).then(() => {
-    //         findAllCompetence()
-    //     })
-    // }
-
+    /**
+     * Focntion qui appelle le service competence pour supprimer une competence
+     * @param id number, de la competence à supprimer
+     */
     const suprimeCompetence = (id: number) => {
         service.deleteCompetence(id).then(() => {
             findAllCompetence()
         })
     }
 
+    /**
+     * Fonction qui appelle le service competence pour modifier une competence
+     * @param competence CompetenceType, à modifier
+     */
     const modifCompetence = (competence: CompetenceType) => {
         service.putCompetence(competence).then(() => {
             findAllCompetence()

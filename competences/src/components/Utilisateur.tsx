@@ -11,6 +11,10 @@ export type UtilisateurProps = {
 
 const Utilisateur = (props: UtilisateurProps) => {
 
+    /**
+     * Fonction qui utilise les props pour supprimer
+     * une personne
+     */
     const suprimerUtil = () => {
         props.suprrimUtilisateur(props.utilisateur.id)
     }

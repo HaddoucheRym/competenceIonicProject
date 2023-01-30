@@ -14,14 +14,24 @@ const DetailCompetence = () => {
   const [selectedCompId, setSelectedCompId] = useState(id);
   const [utilisateurs, setUtilisateurs] = useState<UtilisateurType[]>([])
 
+  /**
+     * Mise à jour et recuperation des personnes
+     */
   useEffect(() => {
     trouverTousUtilisateurs()
   }, [])
 
+  /**
+    * fonction qui appelle le service personne pour afficher toutes les personnes
+    */
   const trouverTousUtilisateurs = (): void => {
     personneservice.findAllUtilisateurs().then(data => setUtilisateurs(data))
   }
 
+  /**
+   * Fonction qui afficher les personnes qui ont cette competence
+   * @returns liste de personnes 
+   */
   const utilisateursFiltre = (): any => {
     let filteredUsers: UtilisateurType[] = [];
     if (comp) {
@@ -30,10 +40,16 @@ const DetailCompetence = () => {
     return filteredUsers;
   };
 
+  /**
+  * Mise à jour et recuperation d'une competence
+  */
   useEffect(() => {
     touverCompetence()
   }, [selectedCompId])
 
+  /**
+  * Fonction qui fait appel au service competence pour affiche une competence
+  */
   const touverCompetence = (): void => {
     service.findCompetence(selectedCompId).then(data => setComp(data))
   }
@@ -63,20 +79,20 @@ const DetailCompetence = () => {
 
           {utilisateursFiltre() && utilisateursFiltre().map((element: UtilisateurType) => {
             return (
-              <IonList key = {element.id}>
+              <IonList key={element.id}>
                 <IonItem >
                   {element.nom} &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  {element.competences.map((elt:NiveauCompetence) => {
-                    
+                  {element.competences.map((elt: NiveauCompetence) => {
+
                     if (elt.nom === comp?.nom) {
-                    return <p>{elt.niveau}</p>
-                  }  
-                  }    
-          )} 
+                      return <p>{elt.niveau}</p>
+                    }
+                  }
+                  )}
                 </IonItem>
               </IonList>)
           }

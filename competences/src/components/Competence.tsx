@@ -16,13 +16,24 @@ export type CompetenceProps = {
 const Competence = (props: CompetenceProps) => {
     const [utilisateurs, setUtilisateurs] = useState<UtilisateurType[]>([])
 
+     /**
+     * Mise à jour et recuperation des personnes
+     */
     useEffect(() => {
         trouverTousUtilisateurs()
     }, [])
 
+     /**
+     * fonction qui appelle le service personne pour afficher toutes les personnes
+     */
     const trouverTousUtilisateurs = (): void => {
         personneservice.findAllUtilisateurs().then(data => setUtilisateurs(data))
     }
+
+    /**
+     * Fonction qui utilise les props pour supprimer
+     * une competence
+     */
     const supprimerComp = () => {
         props.supprimerComp(props.comp.id)
     }
