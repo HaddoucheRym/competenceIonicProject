@@ -28,7 +28,7 @@ import DetailCompetence from './components/DetailCompetence';
 import UtilisateurPage from './pages/UtilisateurPage';
 import AddUtilisateur from './components/AddUtilisateur';
 import DetailUtilisateur from './components/DetailUtilisateur';
-import { calendar, personCircle, map, informationCircle, flash } from 'ionicons/icons'
+import { personCircle, flash } from 'ionicons/icons'
 
 
 setupIonicReact();
@@ -36,7 +36,7 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonPage id="main">
+      
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/home">
@@ -51,18 +51,18 @@ const App: React.FC = () => (
             <Route path="/ajoutUtilisateur" component={AddUtilisateur} />
             <Route path="/detailUtilisateur/:id" component={DetailUtilisateur} />
           </IonRouterOutlet>
-          <IonTabBar slot="bottom">
-            <IonTabButton tab="/" href="/">
+          <IonTabBar slot="bottom" >
+            <IonTabButton tab="/" href="/home">
               <IonIcon icon={flash} />
-              <IonLabel>Competeneces</IonLabel>
+              <IonLabel>Competences</IonLabel>
             </IonTabButton>
-            <IonTabButton tab="utilisateurs" href="/utilisateurs">
+            <IonTabButton tab="/utilisateurs" href="/utilisateurs">
               <IonIcon icon={personCircle} />
               <IonLabel>Personnes</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
-      </IonPage>
+      
     </IonReactRouter>
   </IonApp>
 );

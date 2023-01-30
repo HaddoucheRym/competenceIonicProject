@@ -2,7 +2,8 @@ import { IonBackButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonC
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { NiveauCompetence } from '../service/niveauCompetence.type';
-import { service } from '../service/service';
+import { personneservice } from '../service/personne.service';
+import { service } from '../service/competence.service';
 import { UtilisateurType } from '../service/utilisateur.type'
 
 const DetailUtilisateur = () => {
@@ -15,7 +16,7 @@ const DetailUtilisateur = () => {
   }, [selectedPerId])
 
   const trouvPersonne = (): void => {
-    service.findUtilisateur(selectedPerId).then(data =>
+    personneservice.findUtilisateur(selectedPerId).then(data =>
       setPersonne(data))
   }
 
@@ -32,7 +33,7 @@ const DetailUtilisateur = () => {
         </IonHeader>
         <IonContent fullscreen>
           <IonCard>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+            <img alt="Silhouette of mountains" src="https://media.licdn.com/dms/image/C4D22AQFQWGiDsxQ9uA/feedshare-shrink_2048_1536/0/1674460434778?e=1677715200&v=beta&t=l8fHdUtQBhhnz3xhgdPhvrAvgf3CCFbUBb8rKDasgPQ" />
             <IonCardHeader>
               <IonCardTitle>{personne?.nom}</IonCardTitle>
               <IonCardSubtitle>{personne?.date}</IonCardSubtitle>
@@ -45,11 +46,12 @@ const DetailUtilisateur = () => {
           <h3>Liste de competences</h3>
           <div>
             {personne?.competences.map((element: NiveauCompetence, index: number) =>
-              <IonList>
-                <IonItem key={index}>
+              <IonList key={index}>
+                <IonItem >
                   {element.nom} &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{element.niveau}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;{element.niveau}
                 </IonItem>
               </IonList>
             )}

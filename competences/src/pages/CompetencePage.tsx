@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 import AddCompetence from '../components/AddCompetence'
 import CompetenceList from '../layaouts/CompetenceList'
 import { CompetenceType } from '../service/competence.type'
-import { service } from '../service/service'
+import { service } from '../service/competence.service'
 
 const CompetencePage = () => {
     const [comps, setComps] = useState<CompetenceType[]>([])
@@ -53,7 +53,7 @@ const CompetencePage = () => {
                     <CompetenceList comps={comps} supprimeComp={suprimeCompetence} modifComp={modifCompetence} />
                     {/* <AddCompetence ajoutComp={ajoutCompetence} comps={comps} setComps={setComps} /> */}
                     <NavLink to="/ajoutCompetence" >
-                    <IonButton >Ajouter</IonButton>
+                        <IonButton >Nouvelle competence</IonButton>
                     </NavLink>
                 </IonContent>
             </IonPage>

@@ -9,7 +9,7 @@
       "competences": [
         {
           "nom": "React",
-          "niveau": "Debutant"
+          "niveau": "Confirmé"
         }
       ]
     },
@@ -55,18 +55,54 @@
           "niveau": "Confirmé"
         }
       ]
+    },
+    {
+      "id": 7,
+      "nom": "lililala",
+      "date": "12/02/1999",
+      "email": "lili@gmail.com",
+      "telephone": "0265897",
+      "competences": [
+        {
+          "nom": "Java ",
+          "niveau": "Habitué"
+        },
+        {
+          "nom": "React ",
+          "niveau": "Habitué"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nom": "eym",
+      "date": "12/12/1222",
+      "email": "rym@gmail.com",
+      "telephone": "0123456",
+      "competences": [
+        {
+          "nom": "Java ",
+          "niveau": "Confirmé"
+        },
+        {
+          "nom": "React ",
+          "niveau": "Confirmé"
+        }
+      ]
     }
   ],
   "competences": [
     {
       "id": 1,
       "nom": "Java ",
-      "description": "Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems"
+      "description": "Java est un langage de programmation orienté objet créé par James Gosling et Patrick Naughton, employés de Sun Microsystems",
+      "image": "https://www.sitedetout.com/wp-content/uploads/2016/07/java.jpg"
     },
     {
       "id": 2,
       "nom": "React ",
-      "description": "React est une bibliothèque JavaScript libre développée par Facebook depuis 2013."
+      "description": "React est une bibliothèque JavaScript libre développée par Facebook depuis 2013.",
+      "image": "https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg"
     }
   ]
 }

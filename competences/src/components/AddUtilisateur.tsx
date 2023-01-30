@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { CompetenceType } from '../service/competence.type'
 import { NiveauCompetence } from '../service/niveauCompetence.type'
-import { service } from '../service/service'
+import { personneservice } from '../service/personne.service'
+import { service } from '../service/competence.service'
 import { UtilisateurType } from '../service/utilisateur.type'
 
 const AddUtilisateur = () => {
@@ -32,11 +33,11 @@ const AddUtilisateur = () => {
     }, [])
 
     const trouverTousUtilisateurs = (): void => {
-        service.findAllUtilisateurs().then(data => setPersonnes(data))
+        personneservice.findAllUtilisateurs().then(data => setPersonnes(data))
     }
 
     const ajoutPersonne = (newPersonne: UtilisateurType): void => {
-        service.postUtilisateur(newPersonne).then(() => {
+        personneservice.postUtilisateur(newPersonne).then(() => {
             trouverTousUtilisateurs()
         })
     }

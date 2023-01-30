@@ -22,19 +22,30 @@ const EditeCompetence = (props: EditeCompetenceProps) => {
         setComp({ ...comp, description: event.target.value, })
     }
 
+    const handleChangeImage = (event: any) => {
+        setComp({ ...comp, image: event.target.value, })
+    }
+
     return (
         <>
-        <IonItem counter={true}>
-        <IonLabel position="floating">Nom du competence</IonLabel>
-        <IonInput type='text' maxlength={20} value={comp.nom} onIonChange={(event:any)=>handleChangeNom(event)}></IonInput>
-      </IonItem>
+            <IonItem counter={true}>
+                <IonLabel position="floating">Nom du competence</IonLabel>
+                <IonInput type='text' maxlength={20} value={comp.nom} onIonChange={(event: any) => handleChangeNom(event)}></IonInput>
+            </IonItem>
 
-      <IonItem counter={true} counterFormatter={(inputLength, maxLength) => `${maxLength - inputLength} characters remaining`}>
-        <IonLabel position="floating">la description du competence</IonLabel>
-        <IonInput type='text' maxlength={150} value={comp.description} onIonChange={(event:any) =>
-        handleChangeDescription(event)}></IonInput>
-      </IonItem>
-      <IonButton color="success" onClick={() => modiferComp()}>Valider</IonButton>
+            <IonItem counter={true} counterFormatter={(inputLength, maxLength) => `${maxLength - inputLength} characters remaining`}>
+                <IonLabel position="floating">la description du competence</IonLabel>
+                <IonInput type='text' maxlength={150} value={comp.description} onIonChange={(event: any) =>
+                    handleChangeDescription(event)}></IonInput>
+            </IonItem>
+
+            <IonItem counter={true} counterFormatter={(inputLength, maxLength) => `${maxLength - inputLength} characters remaining`}>
+                <IonLabel position="floating">l'image de la competence</IonLabel>
+                <IonInput type='text' maxlength={150} value={comp.image} onIonChange={(event: any) =>
+                    handleChangeImage(event)}></IonInput>
+            </IonItem>
+
+            <IonButton color="success" onClick={() => modiferComp()}>Valider</IonButton>
         </>
     )
 }

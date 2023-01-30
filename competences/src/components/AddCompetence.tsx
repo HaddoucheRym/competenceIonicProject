@@ -3,7 +3,7 @@ import { type } from 'os'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { CompetenceType } from '../service/competence.type'
-import { service } from '../service/service'
+import { service } from '../service/competence.service'
 
 // export type AddCompetenceProps = {
 //     ajoutComp: Function,
@@ -16,7 +16,8 @@ const AddCompetence = () => {
     const [newCompetence, setNewCompetence] = useState<CompetenceType>({
         id: 0,
         nom: "",
-        description: ""
+        description: "",
+        image: ""
     })
 
     useEffect(() => {
@@ -39,6 +40,10 @@ const AddCompetence = () => {
 
     const handleChangeDescription = (event: any) => {
         setNewCompetence({ ...newCompetence, description: event.target.value, })
+    }
+
+    const handleChangeImage = (event: any) => {
+        setNewCompetence({ ...newCompetence, image: event.target.value, })
     }
 
     const handleClickSave = (): void => {
@@ -66,6 +71,12 @@ const AddCompetence = () => {
                         <IonLabel position="floating">la description du competence</IonLabel>
                         <IonInput type='text' maxlength={150} value={newCompetence.description} onIonChange={(event: any) =>
                             handleChangeDescription(event)}></IonInput>
+                    </IonItem>
+
+                    <IonItem counter={true} counterFormatter={(inputLength, maxLength) => `${maxLength - inputLength} characters remaining`}>
+                        <IonLabel position="floating">la description du competence</IonLabel>
+                        <IonInput type='text' maxlength={150} value={newCompetence.description} onIonChange={(event: any) =>
+                            handleChangeImage(event)}></IonInput>
                     </IonItem>
                     <NavLink to="/">
                         <IonButton onClick={handleClickSave}>Ajouter</IonButton>

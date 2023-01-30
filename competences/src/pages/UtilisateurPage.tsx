@@ -2,7 +2,7 @@ import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from 
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import UtilisateurListe from '../layaouts/UtilisateurListe'
-import { service } from '../service/service'
+import { personneservice } from '../service/personne.service'
 import { UtilisateurType } from '../service/utilisateur.type'
 
 const UtilisateurPage = () => {
@@ -13,17 +13,17 @@ const UtilisateurPage = () => {
     }, [])
 
     const trouverTousUtilisateurs = (): void => {
-        service.findAllUtilisateurs().then(data => setUtilisateurs(data))
+        personneservice.findAllUtilisateurs().then(data => setUtilisateurs(data))
     }
 
     const supprimerUtilisateur = (id: number) => {
-        service.deleteUtilisateur(id).then(() => {
+        personneservice.deleteUtilisateur(id).then(() => {
             trouverTousUtilisateurs()
         })
     }
 
     const ModifUtilisateur = (utilisateur: UtilisateurType) => {
-        service.putUtilisateur(utilisateur).then(() => {
+        personneservice.putUtilisateur(utilisateur).then(() => {
             trouverTousUtilisateurs()
         })
     }
@@ -45,7 +45,7 @@ const UtilisateurPage = () => {
                     <UtilisateurListe utilisateurs={utilisateurs} supprimerUtilisateur={supprimerUtilisateur}
                     ModifUtilisateur={ModifUtilisateur}/>
                     <NavLink to="/ajoutUtilisateur" >
-                        <IonButton >Ajouter</IonButton>
+                        <IonButton >Nouvelle personne</IonButton>
                     </NavLink>
                 </IonContent>
             </IonPage>
